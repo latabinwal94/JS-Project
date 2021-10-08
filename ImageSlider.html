@@ -59,21 +59,29 @@
 			.active {
 				background: red;
 			}
+			.fade {
+				animation-name: fade;
+				animation-duration: 3s;
+			}
+			@keyframes fade {
+				from{opacity: 0.4}
+				to{opacity: 1;}
+			}
 		</style>
 	</head>
 	<body>
 		<div class="slider-container">
-			<div class="slides">
+			<div class="slides fade">
 				<div class="numbers"></div>
 				<img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="slide-1" />
 				<div class="text">Caption Text 1</div>
 			</div>
-			<div class="slides">
+			<div class="slides fade">
 				<div class="numbers"></div>
 				<img src="https://www.w3schools.com/howto/img_snow_wide.jpg" alt="slide-2" />
 				<div class="text">Caption Text 2</div>
 			</div>
-			<div class="slides">
+			<div class="slides fade">
 				<div class="numbers"></div>
 				<img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" alt="slide-3" />
 				<div class="text">Caption Text 3</div>

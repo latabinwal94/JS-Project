@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF_8" />
+        <meta name="viewport" content="width=max-width, initial-scale:0" />
+    </head>
+    <style>
+        .container {
+            display: inline-block;
+            margin-top: 90px;
+        }
+        .tooltip {
+            cursor: pointer;
+        }
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            opacity: 0;
+            background: #000;
+            padding: 4px 10px;
+            margin-left: -50px;
+            position: absolute;
+            left: 50%;
+            top: 70px;
+        }
+
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #000 transparent transparent;
+            top: 100%;
+            left: 50%;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+            color: #fff;
+        }
+    </style>
+    <body style="text-align:center;">
+        <div class="container">
+            <div class="tooltip">Hover on me
+                <span class="tooltip-text">I am a tooltip</span>
+            </div>
+        </div>
+    </body>
+</html>

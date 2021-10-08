@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name='viewport' content="width=device-width, initial-scale=1.0" />
+		<style>
+			.slider-container {
+				max-width: 1000px;
+				margin: auto;
+				position: relative;
+			}
+			.numbers {
+				position: absolute;
+				color:  #fff;
+				padding: 8px 12px;
+				font-size: 12px;
+				top: 0;
+			}
+			.text {
+				position: absolute;
+				bottom: 32px;
+				text-align: center;
+				width: 100%;
+				font-size: 14px;
+				color: #fff;
+			}
+			.prev {
+				position: absolute;
+				top: 50%;
+				color: #fff;
+				font-size: 16px;
+				padding: 10px 14px;
+				margin-top: -22px;
+				cursor: pointer;
+				margin-left: 10px;
+			}
+			.prev:hover, .next:hover {
+				background: #000;
+			}
+			.next {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				color: #fff;
+				font-size: 16px;
+				padding: 10px 14px;
+				margin-top: -22px;
+				cursor: pointer;
+				margin-right: 10px;
+			}
+			.dot {
+				width: 16px;
+				height: 16px;
+				background: #bbb;
+				border-radius: 16px;
+				display: inline-block;
+				margin-right: 4px;
+				cursor: pointer;
+			}
+			.active {
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="slider-container">
+			<div class="slides">
+				<div class="numbers"></div>
+				<img src="https://www.w3schools.com/howto/img_nature_wide.jpg" alt="slide-1" />
+				<div class="text">Caption Text 1</div>
+			</div>
+			<div class="slides">
+				<div class="numbers"></div>
+				<img src="https://www.w3schools.com/howto/img_snow_wide.jpg" alt="slide-2" />
+				<div class="text">Caption Text 2</div>
+			</div>
+			<div class="slides">
+				<div class="numbers"></div>
+				<img src="https://www.w3schools.com/howto/img_mountains_wide.jpg" alt="slide-3" />
+				<div class="text">Caption Text 3</div>
+			</div>
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		<br>
+		<div style="text-align: center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+		</div>
+		<script>
+			let slideIndex = 1
+			showSlides(slideIndex)
+
+			function plusSlides(n) {
+				showSlides(slideIndex+=n)
+			}
+			function currentSlide(n) {
+				showSlides(slideIndex = n)
+			}
+			function showSlides(n) {
+				let slides = document.getElementsByClassName('slides')
+				let dot = document.getElementsByClassName('dot')
+				let numberss = document.getElementsByClassName("numbers")
+				console.log(numberss, 'numberss')
+				for(let i = 0; i<slides.length; i++) {
+					if(n > slides.length) {
+						slideIndex = 1
+					}
+					if(n < 1) {
+						slideIndex = slides.length
+					}
+					slides[i].style.display = 'none'
+					dot[i].className = dot[i].className.replace(" active", "")
+					numberss[i].textContent = `${i+1} / ${slides.length}`
+				}
+				slides[slideIndex-1].style.display = "block"
+				dot[slideIndex-1].className += " active"
+			}
+		</script>
+	</body>
+</html>
